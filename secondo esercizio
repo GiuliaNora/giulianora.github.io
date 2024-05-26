@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mischia i Colori</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .color-select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .mix-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .mix-button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mischia i Colori</h1>
+    <div>
+        <label for="color1">Scegli il primo colore:</label>
+        <select id="color1" class="color-select">
+            <option value="rosso">Rosso</option>
+            <option value="blu">Blu</option>
+            <option value="giallo">Giallo</option>
+        </select>
+    </div>
+    <div>
+        <label for="color2">Scegli il secondo colore:</label>
+        <select id="color2" class="color-select">
+            <option value="rosso">Rosso</option>
+            <option value="blu">Blu</option>
+            <option value="giallo">Giallo</option>
+        </select>
+    </div>
+    <button class="mix-button" onclick="mixColors()">Mischia</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function mixColors() {
+            const color1 = document.getElementById('color1').value;
+            const color2 = document.getElementById('color2').value;
+            let resultColor = '';
+
+            if ((color1 === 'rosso' && color2 === 'blu') || (color1 === 'blu' && color2 === 'rosso')) {
+                resultColor = 'Viola';
+            } else if ((color1 === 'rosso' && color2 === 'giallo') || (color1 === 'giallo' && color2 === 'rosso')) {
+                resultColor = 'Arancione';
+            } else if ((color1 === 'blu' && color2 === 'giallo') || (color1 === 'giallo' && color2 === 'blu')) {
+                resultColor = 'Verde';
+            } else if (color1 === color2) {
+                resultColor = color1.charAt(0).toUpperCase() + color1.slice(1); // Capitalizza la prima lettera
+            } else {
+                resultColor = 'Colore non definito';
+            }
+
+            document.getElementById('result').textContent = `Mescolando ${color1} e ${color2} si ottiene ${resultColor}.`;
+        }
+    </script>
+</body>
+</html>
