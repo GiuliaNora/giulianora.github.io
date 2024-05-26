@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabellina del 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .quiz-container {
+            margin-top: 20px;
+        }
+        .quiz-container input[type="number"] {
+            padding: 5px;
+            font-size: 16px;
+        }
+        .quiz-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .quiz-container button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Impariamo la Tabellina del 2</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Moltiplicazione</th>
+                <th>Risultato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>2 × 1</td><td>2</td></tr>
+            <tr><td>2 × 2</td><td>4</td></tr>
+            <tr><td>2 × 3</td><td>6</td></tr>
+            <tr><td>2 × 4</td><td>8</td></tr>
+            <tr><td>2 × 5</td><td>10</td></tr>
+            <tr><td>2 × 6</td><td>12</td></tr>
+            <tr><td>2 × 7</td><td>14</td></tr>
+            <tr><td>2 × 8</td><td>16</td></tr>
+            <tr><td>2 × 9</td><td>18</td></tr>
+            <tr><td>2 × 10</td><td>20</td></tr>
+        </tbody>
+    </table>
+
+    <div class="quiz-container">
+        <h2>Quiz: Quanto fa 2 × ?</h2>
+        <form id="quizForm">
+            <label for="multiplicand">Scegli un numero da 1 a 10:</label>
+            <input type="number" id="multiplicand" name="multiplicand" min="1" max="10" required>
+            <button type="submit">Verifica</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const multiplicand = parseInt(document.getElementById('multiplicand').value);
+            const result = multiplicand * 2;
+            document.getElementById('result').textContent = `2 × ${multiplicand} = ${result}`;
+        });
+    </script>
+</body>
+</html>
